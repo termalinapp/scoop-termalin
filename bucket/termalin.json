@@ -1,0 +1,36 @@
+{
+    "version": "0.1.39",
+    "description": "Cross-platform SSH client with a built-in MCP server — safe SSH access for AI agents.",
+    "homepage": "https://termal.in/",
+    "license": "Freeware",
+    "notes": [
+        "Termalin keeps saved hosts, keys and snippets encrypted at rest under %LOCALAPPDATA%\\Termalin; that data persists across upgrades/uninstall.",
+        "The app has a built-in auto-updater. When installed via Scoop, prefer 'scoop update termalin' so Scoop stays the source of truth."
+    ],
+    "architecture": {
+        "64bit": {
+            "url": "https://termal.in/download/Termalin-Setup-0.1.39.exe",
+            "hash": "1e4d817bdfcd0b32dc9dd167123715d420a3a8d39bc6201efd2c7fd2f9c2a312"
+        }
+    },
+    "innosetup": true,
+    "bin": "termalin.exe",
+    "shortcuts": [
+        ["termalin.exe", "Termalin"]
+    ],
+    "checkver": {
+        "url": "https://termal.in/api/v1/updates/latest?platform=windows",
+        "jsonpath": "$.data.version"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://termal.in/download/Termalin-Setup-$version.exe"
+            }
+        },
+        "hash": {
+            "url": "https://termal.in/api/v1/updates/latest?platform=windows",
+            "jsonpath": "$.data.sha256"
+        }
+    }
+}
