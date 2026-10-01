@@ -1,5 +1,5 @@
 {
-    "version": "0.1.42",
+    "version": "0.1.43",
     "description": "Cross-platform SSH client with a built-in MCP server — safe SSH access for AI agents.",
     "homepage": "https://termal.in/",
     "license": "Freeware",
@@ -9,8 +9,8 @@
     ],
     "architecture": {
         "64bit": {
-            "url": "https://termal.in/download/Termalin-Setup-0.1.42.exe",
-            "hash": "b995cecc0a3a2409695cd1d3ddcc53091b3de6a94ed19ab8852f027ec8176927"
+            "url": "https://termal.in/download/Termalin-Setup-0.1.43.exe",
+            "hash": "514a95a3076d6694c8163c8a7040f526b6429bed3cc21570d6ad09ba97cc27e8"
         }
     },
     "innosetup": true,
