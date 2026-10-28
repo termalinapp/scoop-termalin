@@ -16,7 +16,17 @@
     "innosetup": true,
     "bin": "termalin.exe",
     "shortcuts": [
-        ["termalin.exe", "Termalin"]
+        [
+            "termalin.exe",
+            "Termalin"
+        ]
+    ],
+    "post_install": [
+        "# Scoop's unpacker saves the installer's two copies of the core library as",
+        "# termalin_core,1.dll and termalin_core,2.dll; the app loads termalin_core.dll.",
+        "$copies = @(Get-ChildItem \"$dir\" -Filter 'termalin_core,*.dll' | Sort-Object Name)",
+        "if (!(Test-Path \"$dir\\termalin_core.dll\") -and $copies.Count) { Copy-Item $copies[0].FullName \"$dir\\termalin_core.dll\" }",
+        "$copies | Remove-Item -Force -ErrorAction SilentlyContinue"
     ],
     "checkver": {
         "url": "https://termal.in/api/v1/updates/latest?platform=windows",
